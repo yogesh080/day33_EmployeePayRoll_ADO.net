@@ -51,7 +51,7 @@ namespace Day33_EmployeePayroll_ADO.NET
                         }
                         foreach (var employee in employeeDetailsList)
                         {
-                            Console.WriteLine($"{employee.EmployeeID} | {employee.EmployeeName} | {employee.PhoneNumber} | {employee.Gender} | {employee.Department}");
+                            Console.WriteLine($"EmployeeID: {employee.EmployeeID}\nEmployeeName: {employee.EmployeeName}\nPhoneNumber: {employee.PhoneNumber}\nDepartment: {employee.Department}\nGender: {employee.Gender}\nEmail: {employee.Email}\nCity: {employee.City}\nState: {employee.State}\nCountry: {employee.Country}\nPay: {employee.Pay}");
 
                         }
 
