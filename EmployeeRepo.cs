@@ -51,7 +51,7 @@ namespace Day33_EmployeePayroll_ADO.NET
                         }
                         foreach (var employee in employeeDetailsList)
                         {
-                            Console.WriteLine($"{employee.EmployeeID} | {employee.EmployeeName} | {employee.PhoneNumber} | {employee.Gender} | {employee.Department}");
+                            Console.WriteLine($"EmployeeID: {employee.EmployeeID}\nEmployeeName: {employee.EmployeeName}\nPhoneNumber: {employee.PhoneNumber}\nDepartment: {employee.Department}\nGender: {employee.Gender}\nEmail: {employee.Email}\nCity: {employee.City}\nState: {employee.State}\nCountry: {employee.Country}\nPay: {employee.Pay}");
 
                         }
 
@@ -69,9 +69,52 @@ namespace Day33_EmployeePayroll_ADO.NET
                 throw new Exception(e.Message);
             }
 
+        }
+
+        public EmployeeModel ReadEmpData()
+        {
+            EmployeeModel mymodel = new EmployeeModel();
+
+            Console.WriteLine("EmployeeName");
+            mymodel.EmployeeName = Console.ReadLine();
+
+            Console.WriteLine("PhoneNumber");
+            mymodel.PhoneNumber = Console.ReadLine();
+
+            Console.WriteLine("Department");
+            mymodel.Department = Console.ReadLine();
+
+            Console.WriteLine("Gender");
+            mymodel.Gender = Console.ReadLine();
+
+            Console.WriteLine("Email");
+            mymodel.Email = Console.ReadLine();
+
+            Console.WriteLine("City");
+            mymodel.City = Console.ReadLine();
+
+            Console.WriteLine("State");
+            mymodel.State = Console.ReadLine();
+
+            Console.WriteLine("Country");
+            mymodel.Country = Console.ReadLine();
+
+            Console.WriteLine("Pay");
+            mymodel.Pay = Convert.ToInt32(Console.ReadLine());
 
 
+            return mymodel;
 
+        }
+
+        public bool UpdatingSalaryInDataBase(int Pay)
+        {
+            SqlCommand cmd = new SqlCommand("DeleteSP", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@EmployeeID", Pay);
+            connection.Open();
+            var res = cmd.ExecuteScalar();
+            connection.Close();
         }
     }
 }

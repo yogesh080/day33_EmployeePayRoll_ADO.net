@@ -1,4 +1,4 @@
 ﻿using Day33_EmployeePayroll_ADO.NET;
 
 EmployeeRepo employeeRepository = new EmployeeRepo();
-employeeRepository.GetAllemployee();
+employeeRepository.UpdatingSalaryInDataBase(1004);
