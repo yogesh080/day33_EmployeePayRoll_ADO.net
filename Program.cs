@@ -1,2 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Day33_EmployeePayroll_ADO.NET;
+
+EmployeeRepo employeeRepository = new EmployeeRepo();
+employeeRepository.GetAllemployee();
